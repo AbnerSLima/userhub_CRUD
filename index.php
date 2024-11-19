@@ -13,6 +13,7 @@ require 'conexao.php';
   </head>
   <body>
     <div class="container mt-4">
+      <?php include('mensagem.php'); ?>
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -27,28 +28,28 @@ require 'conexao.php';
                   <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Email</th>
-                    <th>Data Nascimento</th>
+                    <th>Login</th>
+                    <th>Data de Cadastro</th>
                     <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $sql = 'SELECT * FROM usuarios';
+                  $sql = 'SELECT * FROM users';
                   $usuarios = mysqli_query($conexao, $sql);
                   if (mysqli_num_rows($usuarios) > 0) {
                     foreach($usuarios as $usuario) {
                   ?>
                   <tr>
-                    <td><?=$usuario['id']?></td>
+                    <td><?=$usuario['user_id']?></td>
                     <td><?=$usuario['nome']?></td>
-                    <td><?=$usuario['email']?></td>
-                    <td><?=date('d/m/Y', strtotime($usuario['data_nascimento']))?></td>
+                    <td><?=$usuario['login']?></td>
+                    <td><?=date('d/m/Y H:i', strtotime($usuario['data_cadastro']))?></td>
                     <td>
-                      <a href="usuario-view.php?id=<?=$usuario['id']?>" class="btn btn-secondary btn-sm"><span class="bi-eye-fill"></span>&nbsp;Visualizar</a>
-                      <a href="usuario-edit.php?id=<?=$usuario['id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
-                      <form action="acoes.php" method="POST" class="d-inline">
-                        <button onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete_usuario" value="<?=$usuario['id']?>" class="btn btn-danger btn-sm">
+                      <a href="view.php?user_id=<?=$usuario['user_id']?>" class="btn btn-secondary btn-sm"><span class="bi-eye-fill"></span>&nbsp;Visualizar</a>
+                      <a href="edit.php?user_id=<?=$usuario['user_id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
+                      <form action="crud.php" method="POST" class="d-inline">
+                        <button onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete" value="<?=$usuario['user_id']?>" class="btn btn-danger btn-sm">
                           <span class="bi-trash3-fill"></span>&nbsp;Excluir
                         </button>
                       </form>

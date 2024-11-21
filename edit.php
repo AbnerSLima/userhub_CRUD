@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'conexao.php';
+require 'auth.php';
 ?>
 <!doctype html>
 <html lang="pt-br">

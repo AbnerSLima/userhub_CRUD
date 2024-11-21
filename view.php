@@ -1,5 +1,6 @@
 <?php
 require 'conexao.php';
+require 'auth.php';
 ?>
 <!doctype html>
 <html lang="pt-bp">

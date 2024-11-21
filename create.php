@@ -1,3 +1,6 @@
+<?php
+require 'auth.php';
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>

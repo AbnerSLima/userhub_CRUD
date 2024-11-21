@@ -52,4 +52,18 @@ if (isset($_POST['delete'])) {
 		exit;
 	}
 }
+if (isset($_GET['search'])) {
+	$search = mysqli_real_escape_string($conexao, trim($_GET['search']));
+	$sql = "SELECT * FROM users WHERE nome LIKE '%$search%' OR login LIKE '%$search%' ORDER BY user_id ASC";
+	$result = mysqli_query($conexao, $sql);
+	$usuarios = [];
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+					$usuarios[] = $row;
+			}
+	}
+	$_SESSION['usuarios'] = $usuarios;
+	header('Location: index.php');
+	exit;
+}
 ?>

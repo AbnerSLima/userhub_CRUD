@@ -51,7 +51,7 @@ No futuro, o projeto será atualizado para consumir dados diretamente de uma API
    ```bash
    C:\xampp\htdocs\userhub
 3. Configure o arquivo de conexão com o banco de dados:
-   - Abra conexao.php e ajuste os valores conforme seu ambiente local:
+- Abra conexao.php e ajuste os valores conforme seu ambiente local:
    ```bash
    define('HOST', '127.0.0.1');
    define('USUARIO', 'root');
@@ -64,8 +64,8 @@ No futuro, o projeto será atualizado para consumir dados diretamente de uma API
    ```bash
    http://localhost/userhub
 3. Faça login utilizando o **usuário padrão**:
-   - **Usuário**: `admin`
-   - **Senha**: `admin`
+- **Usuário**: `admin`
+- **Senha**: `admin`
 5. Após o login, você poderá explorar o sistema e criar novos usuários se desejar.
 
 ## 📡 Futuras Atualizações
